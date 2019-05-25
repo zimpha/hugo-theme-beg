@@ -1,6 +1,18 @@
+
 # What is this.
 
+This is a hugo theme forked from beg, the origin theme is https://themes.gohugo.io/beg/
+
+## what is changed
+
+* add i18n, Chinese language 
+* google search
+* utteranc comments
+* tags and other css
+
 This is the Bootstrap3 based theme for Hugo.
+
+
 
 [Hugo :: A fast and modern static website engine](https://gohugo.io/)
 
