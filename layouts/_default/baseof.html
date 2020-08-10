@@ -11,6 +11,28 @@
     {{ range .Site.Params.custom_css }}
         <link rel="stylesheet" href="{{ $.Site.BaseURL }}{{ . }}">
     {{ end }}
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          displayMath: [['$$','$$'], ['\\[', '\\]']],
+          processEscapes: true,
+          processEnvironments: true
+        },
+        options: {
+          skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+        }
+      };
+    
+      window.addEventListener('load', (event) => {
+          document.querySelectorAll("mjx-container").forEach(function(x){
+            x.parentElement.classList += 'has-jax'})
+        });
+    
+    </script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script type="text/javascript" id="MathJax-script" async
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
   </head>
 
@@ -32,11 +54,9 @@
             <a class="navbar-brand" href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a>
           </div>
 
-          {{ if ne (len .Site.Menus) 0 }}
           <div id="navbar" class="collapse navbar-collapse">
-            {{ range .Site.Menus }}
+            {{ range sort .Site.Menus.main ".Weight" "desc"}}
             <ul class="nav navbar-nav navbar-right">
-              {{ range . }}
               {{ if .HasChildren }}
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ .Name }} <span class="caret"></span></a>
@@ -49,11 +69,9 @@
               {{ else }}
               <li><a href="{{ .URL }}">{{ .Name }}</a></li>
               {{ end }}
-              {{ end }}
             </ul>
             {{ end }}
           </div>
-          {{ end }}
 
         </div>
       </nav>

@@ -3,16 +3,16 @@
     <section class="widget">
         {{ partial "search_form" . }}
     </section>
-  <!-- <section class="panel panel-default">
+    <section class="panel panel-default">
     <div class="panel-heading">
       <div class="panel-title">LATESTS</div>
     </div>
     <div class="list-group">
-      {{ range first 10 .Site.Pages }}
+      {{ range first 5 .Site.RegularPages }}
       <a href="{{ .Permalink }}" class="list-group-item">{{ .Title }}</a>
       {{ end }}
     </div>
-  </section> -->
+  </section>
 
   {{ range $key, $value := .Site.Taxonomies }}
   <section class="panel panel-default">
@@ -28,6 +28,19 @@
       {{ end }}
       {{ end }}
     </div>
+  </section>
+  {{ end }}
+
+  {{ with .Site.Menus.sidebar }}
+  <section class="panel panel-default">
+    <div class="panel-heading">
+      <div class="panel-title">LINKS</div>
+    </div>
+    <ol class="list-group">
+      {{ range . }}
+      <a href="{{ .URL | absURL }}" class="list-group-item">{{ .Name }}</a>
+      {{ end }}
+    </ol>
   </section>
   {{ end }}
 

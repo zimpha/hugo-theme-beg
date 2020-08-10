@@ -160,7 +160,19 @@ article>header {
 }
 
 article .summary {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: medium;
   margin-bottom: .5rem;
+}
+
+article .summary p {
+  margin: 0.3rem 0;
+  line-height: 1.5rem;
+}
+
+article .summary ul,
+article .summary ol {
+  padding-left: 1.5rem;
 }
 
 article.single .thumb {
@@ -186,6 +198,11 @@ article.li.sm>header {
   margin-bottom: 0;
 }
 
+.article-body {
+  font-family: 'Times New Roman', Times, serif;
+  font-size: medium;
+}
+
 .article-body h2 {
   padding: 1rem 0;
   border-bottom: 2px solid #eceff1;
@@ -203,7 +220,7 @@ article.li.sm>header {
 }
 
 .article-body p {
-  margin: 1.5rem 0;
+  margin: 0.5rem 0;
   line-height: 1.5rem;
 }
 
@@ -324,4 +341,9 @@ article.li.sm>header {
   background: none;
 }
 
-
+code.has-jax {
+  -webkit-font-smoothing: antialiased;
+  background: inherit !important;
+  border: none !important;
+  font-size: 100%;
+}
